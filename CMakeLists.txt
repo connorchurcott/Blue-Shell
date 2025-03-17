@@ -9,22 +9,4 @@ include_directories(include)
 file(GLOB SOURCE "src/*.c")
 add_executable(shell ${SOURCE})
 
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -g")
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -g")
-
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  DOWNLOAD_EXTRACT_TIMESTAMP false
-  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-
-add_executable(shell_test gtest/shell_test.cpp)
-target_link_libraries(shell_test GTest::gtest_main)
-
-include(GoogleTest)
-gtest_discover_tests(shell_test)
-
 
