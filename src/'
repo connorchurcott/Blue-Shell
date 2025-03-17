@@ -1,0 +1,11 @@
+#include "helpers.h"
+
+void writeOut(int stream, char *message, int size) {
+  int status = write(stream, message, size);
+  if (status == -1) {
+    if (errno == EINTR) {
+      // handle
+    }
+  }
+  return;
+}
